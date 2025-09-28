@@ -1,0 +1,355 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Julian Harris — Parks & Recreation Portfolio</title>
+
+  <!-- NCCU theme colors -->
+  <style>
+    :root{
+      --maroon: #7a0019;
+      --gold: #ffd100;
+      --bg: #f4f4f6;
+      --card: #ffffff;
+      --muted: #666;
+      --max-width: 1100px;
+    }
+    *{box-sizing: border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background:var(--bg);
+      color:#111;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+    }
+
+    /* Container */
+    .wrap{
+      max-width:var(--max-width);
+      margin:24px auto;
+      padding:0 18px;
+    }
+
+    /* Top navigation / header */
+    header.site-header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      background: linear-gradient(90deg, rgba(122,0,25,0.06), rgba(255,209,0,0.03));
+      border-radius:12px;
+      padding:12px 18px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      text-decoration:none;
+      color:inherit;
+    }
+    .logo-svg{width:62px;height:62px;flex:0 0 62px}
+    .brand h1{
+      font-size:1.15rem;
+      margin:0;
+      color:var(--maroon);
+      letter-spacing:0.3px;
+    }
+    .brand p{margin:0;font-size:0.8rem;color:var(--muted)}
+
+    nav.site-nav{
+      display:flex;
+      gap:12px;
+      align-items:center;
+    }
+    nav.site-nav a{
+      text-decoration:none;
+      color:var(--maroon);
+      font-weight:600;
+      padding:8px 10px;
+      border-radius:8px;
+    }
+    nav.site-nav a:hover{background:rgba(122,0,25,0.06)}
+
+    /* Hero */
+    .hero{
+      display:grid;
+      grid-template-columns: 200px 1fr;
+      gap:24px;
+      align-items:center;
+      background:var(--card);
+      border-radius:12px;
+      padding:28px;
+      margin-top:18px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+    }
+
+    /* Avatar / placeholder */
+    .avatar{
+      width:180px;height:180px;border-radius:50%;
+      display:flex;align-items:center;justify-content:center;
+      background:linear-gradient(180deg, #fff, #fff);
+      border:6px solid var(--maroon);
+      overflow:hidden;
+      position:relative;
+      flex-shrink:0;
+    }
+    .avatar img{width:100%;height:100%;object-fit:cover;display:block}
+
+    /* fallback initial when no image is present */
+    .initials{
+      font-size:44px;color:var(--maroon);font-weight:700;
+    }
+
+    .hero h2{margin:0;color:var(--maroon);font-size:1.6rem}
+    .hero p{margin:6px 0 12px;color:var(--muted)}
+    .btn-row{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{
+      display:inline-block;padding:10px 14px;border-radius:8px;font-weight:700;text-decoration:none;
+    }
+    .btn.primary{
+      background:var(--maroon);color:white;
+      box-shadow: 0 6px 14px rgba(122,0,25,0.18);
+    }
+    .btn.ghost{border:2px solid var(--maroon);color:var(--maroon);background:transparent}
+
+    /* sections */
+    section.card{
+      background:var(--card);
+      border-radius:12px;
+      padding:22px;
+      margin-top:18px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+    }
+    section.card h3{color:var(--maroon);margin-top:0}
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:16px;
+      margin-top:12px;
+    }
+
+    .interest{
+      display:flex;flex-direction:column;gap:10px;padding:12px;border-radius:10px;background:linear-gradient(180deg,#fff,#fff);
+      min-height:110px;
+    }
+    .interest img{width:100%;height:110px;object-fit:cover;border-radius:8px}
+
+    /* personal interest small card */
+    .small-card{display:flex;gap:12px;align-items:center}
+    .small-card .thumb{width:84px;height:84px;border-radius:8px;background:#eee;display:flex;align-items:center;justify-content:center;overflow:hidden}
+    .small-card .thumb img{width:100%;height:100%;object-fit:cover}
+    .small-card p{margin:0;color:var(--muted)}
+
+    footer{margin:28px 0 80px;text-align:center;color:var(--muted)}
+    a{color:var(--maroon)}
+
+    /* responsive */
+    @media (max-width:840px){
+      .hero{grid-template-columns:1fr}
+      nav.site-nav{display:none}
+      header.site-header{gap:8px}
+    }
+
+    /* smooth scroll */
+    html{scroll-behavior:smooth}
+  </style>
+</head>
+<body>
+
+  <div class="wrap">
+
+    <!-- Header -->
+    <header class="site-header" role="banner">
+      <a class="brand" href="#top" aria-label="Julian Harris Home">
+        <!-- Inline SVG logo (basketball + crown) -->
+        <svg class="logo-svg" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="logoTitle logoDesc">
+          <title id="logoTitle">King's Kidz logo</title>
+          <desc id="logoDesc">A stylized basketball with a crown above — maroon and gold colors.</desc>
+          <!-- crown -->
+          <g transform="translate(10,2)">
+            <polygon points="30,10 40,34 50,12 62,34 72,10 90,10 86,40 60,30 34,40 30,10"
+              fill="#ffd100"/>
+          </g>
+          <!-- basketball -->
+          <circle cx="60" cy="74" r="36" fill="#cc3b24" stroke="#4f0f1a" stroke-width="4"/>
+          <path d="M60 38 v72" stroke="#4f0f1a" stroke-width="3" stroke-linecap="round"/>
+          <path d="M28 74 a42 42 0 0 0 64 0" stroke="#4f0f1a" stroke-width="3" fill="none"/>
+          <path d="M44 55 q20 18 0 36" stroke="#4f0f1a" stroke-width="3" fill="none"/>
+          <path d="M76 55 q-20 18 0 36" stroke="#4f0f1a" stroke-width="3" fill="none"/>
+        </svg>
+
+        <div>
+          <h1>Julian Harris</h1>
+          <p>Parks & Recreation • Sports Management (2026)</p>
+        </div>
+      </a>
+
+      <!-- simple nav -->
+      <nav class="site-nav" role="navigation" aria-label="Main navigation">
+        <a href="#overview">Overview</a>
+        <a href="#bio">Biography</a>
+        <a href="#interests">Professional Interests</a>
+        <a href="#personal">Personal</a>
+        <a href="#orgs">Organizations</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero" id="top" role="region" aria-label="Introduction">
+      <!-- avatar - if you add images/headshot.jpg it will display -->
+      <div class="avatar" aria-hidden="false">
+        <!-- If you later add a real image, replace the <svg> here with:
+             <img src="images/headshot.jpg" alt="Julian Harris smiling headshot" /> -->
+        <svg width="180" height="180" viewBox="0 0 180 180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Headshot placeholder">
+          <rect width="100%" height="100%" fill="#fff"/>
+          <text x="50%" y="50%" font-size="44" fill="#7a0019" font-weight="700" text-anchor="middle" dominant-baseline="central">JH</text>
+        </svg>
+      </div>
+
+      <div>
+        <h2>Welcome — I’m Julian</h2>
+        <p>Thanks for visiting my professional portfolio. I’m a Parks & Recreation major (minor: Sports Management) at NCCU — Class of 2026. I build programs and support athletes through coaching, training, and program leadership.</p>
+
+        <div class="btn-row" style="margin-top:10px">
+          <!-- Resume: make sure file name exactly matches "Julian Harris Resume.pdf" in the same folder -->
+          <a class="btn primary" href="Julian Harris Resume.pdf" download="Julian Harris Resume.pdf" title="Download resume">Download Resume (PDF)</a>
+
+          <!-- Button to email (only NCCU email allowed by assignment) -->
+          <a class="btn ghost" href="mailto:jharr336@eagles.nccu.edu">Email: jharr336@eagles.nccu.edu</a>
+        </div>
+
+        <p style="margin-top:12px;color:var(--muted);font-size:0.9rem">
+          Short-term: Graduate & launch my career. Long-term: Start a recreation & physical therapy center (King’s Kidz) serving youth and professional athletes.
+        </p>
+      </div>
+    </section>
+
+    <!-- Overview -->
+    <section id="overview" class="card" aria-labelledby="overviewTitle">
+      <h3 id="overviewTitle">Professional Overview</h3>
+      <p><strong>Major:</strong> Parks & Recreation (minor: Sports Management) — North Carolina Central University — Class of 2026.</p>
+      <p><strong>Experience:</strong> Summer AAU basketball camp counselor (2016) and Site Supervisor for the City of Wilmington, DE (most recent summer).</p>
+      <p><strong>Goals:</strong> Begin a well-paying job in recreation/sports right after graduation and ultimately found King’s Kidz — a recreation & physical therapy center inspired by my grandfather’s legacy.</p>
+    </section>
+
+    <!-- Biography -->
+    <section id="bio" class="card" aria-labelledby="bioTitle">
+      <h3 id="bioTitle">Biography</h3>
+      <p>
+        I’m from Wilmington, Delaware. Sports have been central to who I am — from flag football, to basketball and track.
+        Choosing a career that ties into sports and recreation felt natural. At NCCU I’ve focused on Parks & Recreation and Sports Management,
+        and I plan to move to Charlotte after graduation to pursue work at a recreational center or sports agency.
+        Inspired by my grandfather’s legacy, I hope one day to open King’s Kidz — a space for athletes of every level to train, recover, and grow.
+      </p>
+    </section>
+
+    <!-- Professional Interests -->
+    <section id="interests" class="card" aria-labelledby="interestsTitle">
+      <h3 id="interestsTitle">Professional Interests</h3>
+      <div class="grid">
+        <div class="interest" role="article" aria-labelledby="i1">
+          <h4 id="i1">Youth Basketball Coach</h4>
+          <p>Coaching youth gives me the chance to mentor players, teach fundamentals, and create a positive team culture.</p>
+          <a href="https://www.ncrpa.net" target="_blank" rel="noopener noreferrer">NCRPA (example link)</a>
+        </div>
+
+        <div class="interest" role="article" aria-labelledby="i2">
+          <h4 id="i2">Basketball Trainer</h4>
+          <p>Training athletes to maximize performance and stay healthy is central to my long-term vision for King’s Kidz.</p>
+          <a href="#" target="_blank" rel="noopener noreferrer">Example training resource (add your link)</a>
+        </div>
+
+        <div class="interest" role="article" aria-labelledby="i3">
+          <h4 id="i3">Sports Agent</h4>
+          <p>I’m interested in representing athletes and helping them navigate opportunities on and off the court.</p>
+          <a href="#" target="_blank" rel="noopener noreferrer">Sports agency example (add your link)</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Personal Interests -->
+    <section id="personal" class="card" aria-labelledby="personalTitle">
+      <h3 id="personalTitle">Personal Interests</h3>
+
+      <div class="grid">
+        <div class="small-card">
+          <div class="thumb" aria-hidden="true">
+            <!-- athlete placeholder, replace with <img src="images/athlete.jpg" alt="Julian playing basketball"> -->
+            <svg width="84" height="84" viewBox="0 0 84 84" xmlns="http://www.w3.org/2000/svg"><circle cx="42" cy="42" r="40" fill="#eee"/><text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" fill="#7a0019" font-weight="700">B</text></svg>
+          </div>
+          <div>
+            <h4>Basketball</h4>
+            <p style="color:var(--muted)">I play for fun and to stay sharp — it’s how I connect with others and sharpen leadership.</p>
+          </div>
+        </div>
+
+        <div class="small-card">
+          <div class="thumb" aria-hidden="true">
+            <!-- music placeholder -->
+            <svg width="84" height="84" viewBox="0 0 84 84" xmlns="http://www.w3.org/2000/svg"><rect width="84" height="84" rx="8" fill="#eee"/><text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" fill="#7a0019" font-weight="700">♪</text></svg>
+          </div>
+          <div>
+            <h4>Music</h4>
+            <p style="color:var(--muted)">I create music — a creative outlet that helps me express ideas and connect with people.</p>
+          </div>
+        </div>
+      </div>
+
+      <p style="margin-top:14px;color:var(--muted);font-size:0.9rem">*All photos in this section should be professional and appropriate for employers. Replace placeholders with your headshot and activity photos when ready.</p>
+    </section>
+
+    <!-- Organizations -->
+    <section id="orgs" class="card" aria-labelledby="orgsTitle">
+      <h3 id="orgsTitle">Professional Organizations</h3>
+
+      <div class="grid" style="align-items:stretch">
+        <div style="padding:12px;border-radius:10px;background:linear-gradient(180deg,#fff,#fff);display:flex;flex-direction:column;justify-content:center;align-items:center">
+          <strong>NCRPA</strong>
+          <p style="margin:6px 0;color:var(--muted)">North Carolina Recreation & Park Association</p>
+          <a href="https://www.ncrpa.net" target="_blank" rel="noopener noreferrer">Visit site</a>
+        </div>
+
+        <div style="padding:12px;border-radius:10px;background:linear-gradient(180deg,#fff,#fff);display:flex;flex-direction:column;justify-content:center;align-items:center">
+          <strong>KARMA</strong>
+          <p style="margin:6px 0;color:var(--muted)">KARMA professional network (placeholder)</p>
+          <a href="#" target="_blank" rel="noopener noreferrer">Add KARMA link</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="card" aria-labelledby="contactTitle">
+      <h3 id="contactTitle">Contact</h3>
+      <p>Only NCCU email is listed per assignment: <a href="mailto:jharr336@eagles.nccu.edu">jharr336@eagles.nccu.edu</a></p>
+    </section>
+
+    <footer>
+      <small>© 2025 Julian Harris — North Carolina Central University • Parks & Recreation</small>
+    </footer>
+
+  </div>
+
+  <!-- Small JS (no libraries) -->
+  <script>
+    // If you later want to replace placeholders programmatically, you can use JS.
+    // Simple tip: If you add an actual headshot at images/headshot.jpg, uncomment below to replace the SVG automatically.
+    /*
+    (function(){
+      var avatar = document.querySelector('.avatar');
+      var img = new Image();
+      img.src = 'images/headshot.jpg';
+      img.alt = 'Julian Harris smiling headshot';
+      img.onload = function(){ avatar.innerHTML = ''; avatar.appendChild(img); }
+    })();
+    */
+
+    // Mobile nav hint — not shown here, but you can later add a toggle menu if needed.
+  </script>
+</body>
+</html>
